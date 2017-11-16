@@ -1,0 +1,57 @@
+﻿
+body{
+
+background-color: #f5f5dc;
+}
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #800000;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #f5f5dc;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+	
+}
+
+
+li a:hover {
+    background-color: red;
+}
+
+
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#800000;
+   text-align: center;
+   padding: 1rem;
+}
+
+
+#mainSearchBox {
+  background-color: #f5f5dc;
+  border: 1px solid silver;
+  width: 300;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align:center;
+}
