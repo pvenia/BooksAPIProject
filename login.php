@@ -1,27 +1,86 @@
+<?php session_start();
+ini_set('session.gc-maxlifetime', 60*5);
 
-
-
-<?php include 'header.php';
+ include 'header.php';
 include 'footer.php';
- include 'menu.php';?>
+ include 'menu.php';
+ 
 
-<p>
-<div align="center">
-<form id='login' action='login.php' method='post' accept-charset='UTF-8'>
-<fieldset >
-<legend>Login</legend>
+require_once 'class.user.php';
+$user_login = new USER();
 
-<input type='hidden' name='submitted' id='submitted' value='1'/>
-<label for='username' >Όνομα χρήστη:</label>
-<input type='text' name='username' id='username'  maxlength="50" />
 
-<label for='password' >Κωδικός:</label>
+if($user_login->is_logged_in()!="")
 
-<input type='password' name='password' id='password' maxlength="50" />
-<input type='submit' name='Submit' value='Είσοδος' />
 
-</fieldset>
-</form>
+{
+	$user_login->redirect('favorites.php');
+}
 
-</p>
-</div>
+
+if(isset($_POST['btn-login']))
+{
+	$email = trim($_POST['txtemail']);
+	$upass = trim($_POST['txtupass']);
+
+	
+	if($user_login->login($email,$upass))
+	{
+		$user_login->redirect('favorites.php');
+	}
+	
+
+}
+?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Σύνδεση χρήστη</title>
+ 
+
+  </head>
+  <body id="login">
+    <div class="container">
+
+		<?php 
+		if(isset($_GET['inactive']))
+		{
+			?>
+            <div class='alert alert-error'>
+				<button class='close' data-dismiss='alert'>&times;</button>
+				<strong>Sorry!</strong> Αυτός ο λογαριασμός δεν έχει ενεργοποιηθεί παρακαλώ ελέγξτε την ηλεκτρονική σας διεύθυνση για ενεργοποίηση 
+			</div>
+            <?php
+		}
+		?>
+        <form class="form-signin" align="center" method="post">
+        <?php
+		
+        if(isset($_GET['error']))
+		{
+			?>
+            <div>
+				<button class='close' data-dismiss='alert'>&times;</button>
+				<strong>Λάθος κωδικός πρόσβασης ή όνομα χρήστη!</strong> 
+			</div>
+			
+            <?php
+		}
+		?>
+			
+        <h2 class="form-signin-heading">Σύνδεση χρήστη</h2><hr />
+        <input type="email" placeholder="Email address" name="txtemail" required />
+        <input type="password" placeholder="Password" name="txtupass" required />
+     	<hr />
+        <button class="btn btn-large btn-primary" type="submit" name="btn-login">Σύνδεση</button>
+       <a href="signup.php"  type="submit" class="btn btn-large btn-primary">Εγγραφή</a><hr />
+		
+	
+        <a href="resetpass.php">Ξέχασες τον κωδικό σου; </a>
+      </form>
+
+    </div> <!-- /container -->
+  
+  </body>
+</html>
