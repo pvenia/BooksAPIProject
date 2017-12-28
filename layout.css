@@ -2,7 +2,6 @@
 body{
 background-color: #f5f5dc;
 
-
 }
 
 
@@ -85,10 +84,10 @@ li a:hover {
 
 .btn {
   display: inline-block;
-  *display: inline;
   padding: 4px 12px;
   margin-bottom: 0;
-  *margin-left: .3em;
+ margin:auto;
+ 
   font-size: 14px;
   line-height: 20px;
   color: #333333;
@@ -97,8 +96,7 @@ li a:hover {
   vertical-align: middle;
   cursor: pointer;
   background-color: #f5f5f5;
-  *background-color: #e6e6e6;
-
+ 
   border: 1px solid #cccccc;
  
 }
@@ -125,19 +123,19 @@ li a:hover {
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+
+
 }
 
 button.btn,
 input[type="submit"].btn {
-  *padding-top: 3px;
-  *padding-bottom: 3px;
+ 
 }
 
 
 button.btn.btn-large,
 input[type="submit"].btn.btn-large {
-  *padding-top: 7px;
-  *padding-bottom: 7px;
+
 }
 
 

@@ -66,7 +66,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
   <body id="login">
     <div class="container">
 		<?php if(isset($msg)) { echo $msg; } ?>
-    </div> 
+    </div> <!-- /container -->
    
   </body>
 </html>

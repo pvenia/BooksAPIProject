@@ -1,8 +1,6 @@
-
-
-
-<?php include 'header.php';
-
+<?php 
+ob_start();
+include 'header.php';
 include 'footer.php';
 include 'menu.php';
  ?>

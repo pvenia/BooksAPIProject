@@ -1,9 +1,11 @@
-<?php session_start();
+<?php 
+session_start();
 include 'header.php';
 include 'footer.php';
- include 'menu.php';
+include 'menu.php';?>
 
 
+<?php
 require_once 'class.user.php';
 
 $reg_user = new USER();
@@ -29,8 +31,7 @@ if(isset($_POST['btn-signup']))
 	if($stmt->rowCount() > 0)
 	{
 		$msg = "
-		      <div class='alert alert-error'>
-				<button class='close' data-dismiss='alert'>&times;</button>
+		      <div>
 					<strong>Συγνώμη</strong>  αυτό το email έχει ήδη χρησιμοποιηθεί για εγγραφή παρακαλώ δοκιμάστε άλλο.
 			  </div>
 			  ";
@@ -51,14 +52,13 @@ if(isset($_POST['btn-signup']))
 						<br /><br />
 						<a href='http://localhost/verify.php?id=$id&code=$code'>Πατήστε εδώ για ενεργοποίηση</a>
 						<br /><br />
-						Σας ευχαριστούμε πολύ";
+						Thanks,";
 						
 			$subject = "Confirm Registration";
 						
 			$reg_user->send_mail($email,$message,$subject);	
 			$msg = "
-					<div class='alert alert-success'>
-						<button class='close' data-dismiss='alert'>&times;</button>
+					<div>
 						<strong>Επιτυχής αποστολή email</strong>  στο $email.
                     Παρακαλώ πιέστε τον σύνδεσμο ενεργοποίησης που παραλάβατε στην ηλεκτρονική σας διεύθυνση
 			  		</div>
@@ -75,7 +75,7 @@ if(isset($_POST['btn-signup']))
 <html>
   <head>
     <title>Εγγραφή Χρήστη</title>
- 
+   
   </head>
   <body id="login">
     <div class="container" align="center">
@@ -94,7 +94,7 @@ if(isset($_POST['btn-signup']))
 	   
       </form>
 
-    </div> <!-- /container -->
+    </div> 
  
   </body>
 </html>
