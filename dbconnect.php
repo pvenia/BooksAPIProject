@@ -1,6 +1,6 @@
 <?php
 require_once 'config.php';
-require_once  "$_SERVER[DOCUMENT_ROOT]/myergasia4/log/log.php";
+require_once  "$_SERVER[DOCUMENT_ROOT]/myergasia6/log/log.php";
 
 class Database
 {
