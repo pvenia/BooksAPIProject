@@ -1,11 +1,16 @@
-<?php session_start();
-ini_set('session.gc-maxlifetime', 60*5);
+<?php
 include 'header.php';
-include 'footer.php';
 include 'menu.php';
-
+include 'footer.php';
+session_start();
 require_once 'class.user.php';
+require_once 'booksdb.php';
+require_once 'pagination.php';
+require_once 'config.php';
+
 $user_home = new USER();
+$pagination = '';
+
 
 if(!$user_home->is_logged_in())
 {
@@ -15,53 +20,67 @@ if(!$user_home->is_logged_in())
 $stmt = $user_home->runQuery("SELECT * FROM users WHERE userID=:uid");
 $stmt->execute(array(":uid"=>$_SESSION['userSession']));
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
+$books = new Books();
+$favorites = $books->return_favorites($_SESSION['userSession']);
+$fav_count = count($favorites);
 ?>
-
-
 
 <!DOCTYPE html>
 <html class="no-js">
-    
+
     <head>
         <title><?php echo $row['userEmail']; ?></title>
-        
+  
     </head>
-    
-    <body
+
+    <body>
                     <a href="#">Member Home</a>
                     <div>
                         <ul>
-                            <li class="dropdown">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> 
-								<?php echo $row['userEmail']; ?> <i class="caret"></i><br>
-								
-								<?php echo "Καλώς ήρθες " .$row['userName']. " " .$row['userSurname'] ?> <i class="caret"></i>
-								
+                            <li>
+                                <a>
+								<?php echo $row['userEmail']; ?> <br>
+
+								<?php echo "Καλώς ήρθες " .$row['userName']. " " .$row['userSurname'] ?>
+								<?php
+								if(isset($_GET['page'])&&preg_match("/^([0-9]+)$/",$_GET['page']))
+									$page = $_GET['page'];
+								else $page = 0;
+								$pagination = pagination($fav_count,$page,'favorites.php'); ?>
                                 </a>
                                 <ul>
                                     <li>
-                                        <a tabindex="-1" href="logout.php">Logout</a>
+                                        <a tabindex="-1" href="logout.php">Αποσύνδεση</a>
+									<!--...    <?php echo $pagination['pagination'] ?> -->
                                     </li>
                                 </ul>
                             </li>
                         </ul>
-                        <ul class="nav">
-                            <li class="active">
-                                <a href="#">page1</a>
-								<a href="#">page2</a>
-                            </li>
+                        <ul >
+                            <li>
 							
-                         
-                            
+																<table>
+																<?php
+																$subfavorites = array_slice($favorites, $pagination['start'],(int)_LIMIT_);
+																$tr='<tr><th>Title</th><th>Author</th><th>Publisher</th></tr>';
+																	foreach($subfavorites as $favorite) {
+																		$tr .= "<tr><td>".$favorite['title']."</td><td>"  .$favorite['author'].
+																		 "</td><td>".$favorite['publisher']."</td><td><input type='hidden' name='url' value=".$favorite['url']."></td><tr>";
+																	}
+																	echo $tr;
+																	echo $pagination['pagination'];
+																?>
+																</table>
+																
+                            </li>
                         </ul>
                     </div>
-                   
+             
                 </div>
             </div>
         </div>
-   
-        
-    </body>
 
-</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="favorites.js"></script>
+
+

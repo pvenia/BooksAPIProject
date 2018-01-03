@@ -1,4 +1,5 @@
 <?php
+
 require_once 'dbconnect.php';
 
 class Books
@@ -31,6 +32,23 @@ class Books
 	    }
 			return $this->registered;
 	  }
+
+		public function return_favorites($user_id) {
+
+			try{
+
+				$sql = "SELECT * FROM books INNER JOIN favorites ON books.book_id=favorites.book_id
+				WHERE favorites.user_id=?";
+				$stmt = $this->conn->prepare($sql);
+				$stmt->bindParam(1, $user_id, PDO::PARAM_INT);
+				if($stmt->execute()) {
+						$res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+				}
+			}catch(PDOException $ex){
+				echo $ex->getMessage();
+			}
+			return $res;
+		}
 
 		public function search_book($book_id) {
 
@@ -69,12 +87,13 @@ class Books
 
     try{
 
-      $sql = "INSERT INTO books(book_id, title, author, publisher) VALUES(?,?,?,?)";
+      $sql = "INSERT INTO books(book_id, title, author, publisher,url) VALUES(?,?,?,?,?)";
       $stmt = $this->conn->prepare($sql);
       $stmt->bindParam(1, $book_data['id'], PDO::PARAM_STR);
       $stmt->bindParam(2, $book_data['title'], PDO::PARAM_STR);
       $stmt->bindParam(3, $book_data['author'], PDO::PARAM_STR);
       $stmt->bindParam(4, $book_data['publisher'], PDO::PARAM_STR);
+	  $stmt->bindParam(5, $book_data['url'], PDO::PARAM_STR);
       //$stmt->bindParam(5, $book_data['year'], PDO::PARAM_STR);
       if($stmt->execute())
           return TRUE;

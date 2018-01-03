@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 include('booksdb.php');
 
@@ -25,14 +24,12 @@ function add_favorite($book_data, $user_id) {
         $books->insert_book($book_data);
 		echo "Το βιβλίο προστέθηκε στην βιβλιοθήκη σας!";
     if(!$books->insert_favorite($book_id, $user_id))
-      echo "Couldnt add book to favorites";
+      echo "Το βιβλίο δεν μπόρεσε να προστεθεί στην βιβλιοθήκη σας";
 
   }else {
    echo "Το βιβλίο υπάρχει ήδη στην βιβλιοθήκη σας!";
    
  }
 }
-// 
-// function check_favorites() {
-// }
+
  ?>

@@ -71,9 +71,6 @@ if(isset($_POST['btn-login']))
         <button class="btn btn-large btn-primary" type="submit" name="btn-login">Σύνδεση</button>
        <a href="signup.php"  type="submit" class="btn btn-large btn-primary">Εγγραφή</a><hr />
 
-<!--
-        <a href="resetpass.php">Ξέχασες τον κωδικό σου; </a>
-			--> 
       </form>
 
     </div>

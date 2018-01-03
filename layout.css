@@ -29,6 +29,7 @@ li a {
 
 li a:hover {
     background-color: red;
+	
 }
 
 
@@ -36,7 +37,7 @@ li a:hover {
    position:fixed;
    left:0px;
    bottom:0px;
-   height:30px;
+   height:20px;
    width:100%;
    background:#800000;
    text-align: center;
@@ -55,6 +56,18 @@ li a:hover {
   text-align:center;
   
 }
+
+table {
+  background-color: #f5f5dc;
+  border-collapse:collapse;
+  margin:19px 19px;
+  margin-bottom: 70px;
+}
+td {
+  border-bottom: 1px solid #fff;
+  padding-bottom: 15px;
+}
+
 
 /** Login **/
 
@@ -80,14 +93,15 @@ li a:hover {
 }
 
 
+
+
 /** Button **/
 
 .btn {
   display: inline-block;
   padding: 4px 12px;
   margin-bottom: 0;
- margin:auto;
- 
+  margin:auto;
   font-size: 14px;
   line-height: 20px;
   color: #333333;
@@ -109,10 +123,7 @@ li a:hover {
           border-radius: 6px;
 }
 
-.btn-large [class^="icon-"],
-.btn-large [class*=" icon-"] {
-  margin-top: 4px;
-}
+
 
 
 .btn-primary {
@@ -121,9 +132,7 @@ li a:hover {
   background-color: #006dcc;
   border-color: #0044cc #0044cc #002a80;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-
+  text-decoration: none;
 
 }
 
@@ -159,9 +168,37 @@ img {
 }
 
 
+#favebutton{
+  margin:auto;
+  display:block;
+  
+}
+
 #result{
 	margin-bottom:150px;
 	font-family:Courier New;
 	font-size: medium;
-
 }
+
+
+.pagination {
+    display: inline-block;
+    border-radius: 15px;
+
+
+ }
+.pagination a {
+    border-radius: 15px;
+    border: 1px solid white; /* Gray */
+    margin: 0 4px;
+    display: inline-block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    border-radius: 15px;
+}
+.pagination a:hover {
+background-color: red;

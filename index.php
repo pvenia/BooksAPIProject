@@ -12,6 +12,7 @@ include 'menu.php';?>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <title>Book library</title>
 <link href="layout.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 </head>
 <body>
 

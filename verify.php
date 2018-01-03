@@ -28,18 +28,17 @@ if(isset($_GET['id']) && isset($_GET['code']))
 			$stmt->execute();	
 			
 			$msg = "
-		           <div class='alert alert-success'>
+		           <div>
 				   <button class='close' data-dismiss='alert'>&times;</button>
-					  <strong>Συγχαρητήρια!</strong>  Ο λογαριασμός σας έχει ενεργοποιηθεί : <a href='index.php'>Συνδεθείτε εδώ</a>
+					  <strong>Συγχαρητήρια!</strong>  Ο λογαριασμός σας έχει ενεργοποιηθεί : <a href='login.php'>Συνδεθείτε εδώ</a>
 			       </div>
 			       ";	
 		}
 		else
 		{
 			$msg = "
-		           <div class='alert alert-error'>
-				   <button class='close' data-dismiss='alert'>&times;</button>
-					  <strong>sorry !</strong>  Ο λογαριασμός σας είναι ήδη ενεργός : <a href='index.php'>Συνδεθείτε εδώ</a>
+		           <div>
+					  <strong>sorry !</strong>  Ο λογαριασμός σας είναι ήδη ενεργός : <a href='login.php'>Συνδεθείτε εδώ</a>
 			       </div>
 			       ";
 		}
@@ -47,8 +46,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
 	else
 	{
 		$msg = "
-		       <div class='alert alert-error'>
-			   <button class='close' data-dismiss='alert'>&times;</button>
+		       <div>
 			   <strong>sorry !</strong>  Δεν βρέθηκε ενεργός λογαριασμός : <a href='signup.php'>Εγγραφείτε εδώ</a>
 			   </div>
 			   ";
@@ -66,7 +64,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
   <body id="login">
     <div class="container">
 		<?php if(isset($msg)) { echo $msg; } ?>
-    </div> <!-- /container -->
+    </div> 
    
   </body>
 </html>

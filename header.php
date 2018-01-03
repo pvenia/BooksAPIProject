@@ -21,7 +21,9 @@ header("Pragma: no-cache"); ?>
 <div style="width:100%;text-align:center;">
 <img src="header.jpg" alt="Books header">
 
-<h2>Βιβλιοθήκη</h2>
+<div style="color:red">
+<h2><b>Μy E-library</b></h2><h3> Θέλετε να αποθηκεύετε τα αγαπημένα σας βιβλία σε ηλεκτρονική βιβλιοθήκη; <a href="signup.php">Κάντε εγγραφή τώρα!</a></h3>
+</div>
 </div>
 
 </body>
