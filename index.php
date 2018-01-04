@@ -23,18 +23,13 @@ include 'menu.php';?>
 		<input type="search" id="books" placeholder="αναζήτηση βιβλίων">
 		<button class="btn btn-primary btn-md" type="submit">Αναζήτηση</i></button>
 	
-	<!--
-		<select name="queryOrderBy">
-			<option value="relevance" selected="true">order by relevance</option>
-			<option value="newest">order by newest</option>
-		</select>
-		--> 
+
         <img src="http://books.google.com/googlebooks/images/poweredby.png" border="0" width="62" height="30" align="absbottom"
          style="position:relative; top: 6px; padding-left: 10px"></a>
     </form>
 </div>
 
-  <div id="result">
+  <div id="result" style = "font-size:22px">
 
   </div>
 </div>

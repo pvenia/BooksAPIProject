@@ -1,6 +1,8 @@
+
 $(document).ready(function() {
   $("tr").click(function(){
-    url = document.getElementsByName('url')[0].value;
+    id = parseInt(this.id);
+    url = document.getElementsByName('url')[id].value;
     window.open(url, '_blank');  })
 
 });

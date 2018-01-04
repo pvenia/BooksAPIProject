@@ -61,14 +61,20 @@ $fav_count = count($favorites);
 							
 																<table>
 																<?php
+																echo $pagination['pagination'];
 																$subfavorites = array_slice($favorites, $pagination['start'],(int)_LIMIT_);
-																$tr='<tr><th>Title</th><th>Author</th><th>Publisher</th></tr>';
-																	foreach($subfavorites as $favorite) {
-																		$tr .= "<tr><td>".$favorite['title']."</td><td>"  .$favorite['author'].
-																		 "</td><td>".$favorite['publisher']."</td><td><input type='hidden' name='url' value=".$favorite['url']."></td><tr>";
-																	}
+																$tr='<tr><th>Title</th><th>Author  </th><th>Publisher</th></tr>';
+														
+																	     $count = 0; 
+                                                                    foreach($subfavorites as $favorite) { 
+                                                                        $tr .= '<tr id ="'.$count.'"><td>'.$favorite['title']."</td><td>".$favorite['author']. 
+                                                                         "</td><td>".$favorite['publisher']."</td><td> 
+                                                                         <input type='hidden' name='url'  value=".$favorite['url'].">"; 
+                                                                         $count++; 
+                                                                    }
+																	
 																	echo $tr;
-																	echo $pagination['pagination'];
+																	
 																?>
 																</table>
 																
