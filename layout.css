@@ -68,7 +68,10 @@ td {
   padding-bottom: 15px;
 }
 
-
+tr:hover {
+  background:#ddd;
+}
+  
 /** Login **/
 
 #login .form-signin {
@@ -202,3 +205,5 @@ img {
 }
 .pagination a:hover {
 background-color: red;
+
+}
