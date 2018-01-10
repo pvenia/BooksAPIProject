@@ -207,3 +207,12 @@ img {
 background-color: red;
 
 }
+/**Μορφοποίηση σελίδας στατιστικών**/
+#countAuthor h1,
+#countAuthor{
+    display: inline;
+    vertical-align: top;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 28px;
+}

@@ -17,7 +17,8 @@ $(document).ready(function(){
 		 
             id=$('<div style="display:none;" id="id_' + i +'">'+ response.items[i].id + '</div>');
   		    title=$('<h6 id="title_' + i +'">Τίτλος:'+ response.items[i].volumeInfo.title + '</h6>');
-            author=$('<h6 id="author_' + i +'">Συγγραφέας:' + response.items[i].volumeInfo.authors + '</h6>');
+			author=$('<h6 id="author_' + i +'">Συγγραφέας:' + '<a target="_blank" href="statistics.php?name='+response.items[i].volumeInfo.authors +'">' + response.items[i].volumeInfo.authors + '</a></h6>');		 	 
+            //author=$('<h6 id="author_' + i +'">Συγγραφέας:' + response.items[i].volumeInfo.authors + '</h6>');
         	publisher=$('<h6 id="publisher_' + i +'">Εκδοτικός οίκος:' + response.items[i].volumeInfo.publisher +'</h6>');
   		    year=$('<h6 id="year_' + i +'">Χρονολογία έκδοσης:' + response.items[i].volumeInfo.publishedDate +'</h6>');
 			//text=$('<h6 style="color:red;"> Περιγραφή:' + response.items[i].searchInfo.textSnippet +'</h6>');
